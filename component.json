@@ -1,0 +1,69 @@
+{
+  "title":"SDF Adapter",
+  "description":"SDF Adapter component for the Open Integration Hub",
+  "docsUrl":"https://github.com/openintegrationhub/sdf-adapter",
+  "triggers":{
+     "getPetsByStatusWithGenerators":{
+        "main":"./lib/triggers/getPetsByStatusWithGenerators.js",
+        "type":"polling",
+        "title":"Get Pets By Status With Generators",
+        "fields":{
+           "status":{
+              "label":"Pet Status",
+              "required":true,
+              "viewClass":"SelectView",
+              "model":{
+                 "available":"Available",
+                 "pending":"Pending",
+                 "sold":"Sold"
+              },
+              "prompt":"Select Pet Status"
+           }
+        },
+        "metadata":{
+           "out":"./lib/schemas/getPetsByStatus.out.json"
+        }
+     }
+  },
+  "actions":{
+     "sendMessageToOih":{
+        "main":"./lib/actions/sendMessageToOih.js",
+        "title":"Send a message to Open Integration Hub",
+        "fields":{
+          "operation":{
+            "label":"Operation",
+            "required":true,
+            "viewClass":"SelectView",
+            "model":{
+               "create":"Create",
+               "update":"Update",
+               "delete":"Delete"
+            },
+            "prompt":"Select Operation"
+         },
+          "domain":{
+             "label":"Domain",
+             "required":true,
+             "viewClass":"SelectView",
+             "model":{
+                "addresses":"Addresses",
+                "products":"Products",
+                "collaboration":"Collaboration",
+                "documents":"Documents"
+             },
+             "prompt":"Select Domain"
+          },
+          "resource":{
+             "label":"Resource",
+             "required":true,
+             "viewClass":"SelectView",
+             "model":{
+                "person":"Person",
+                "organization":"Organization"
+             },
+             "prompt":"Select Resource"
+          }
+       }
+     }
+  }
+}
