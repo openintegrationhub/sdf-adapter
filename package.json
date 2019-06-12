@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "adapter component for the sdf framework",
     "scripts": {
-        "test": "exit 0"
+        "test": "SET NODE_ENV=test & mocha test/* --timeout 10000"
     },
     "repository": {
         "type": "git",
@@ -25,6 +25,8 @@
         "@openintegrationhub/event-bus": "*"
     },
     "devDependencies": {
+        "chai": "^4.1.2",
+        "mocha": "^5.2.0",
         "eslint": "^5.3.0",
         "eslint-config-airbnb-base": "13.1.0",
         "eslint-plugin-import": "^2.14.0",
