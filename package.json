@@ -9,7 +9,7 @@
         "type": "git",
         "url": "https://github.com/openintegrationhub/sdf-adapter.git"
     },
-    "author": "elastic.io GmbH",
+    "author": "Philipp, Franz",
     "license": "BSD-2-Clause",
     "engines": {
         "node": "8.6.0",
