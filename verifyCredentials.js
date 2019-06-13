@@ -1,34 +1,46 @@
-"use strict";
 const request = require('request-promise');
-
+const {calculateExpiration} = require('./lib/helper/refreshToken.js');
 module.exports = verify;
 
 /**
- * Executes the verification logic by sending a simple to the Petstore API using the provided apiKey.
- * If the request succeeds, we can assume that the apiKey is valid. Otherwise it is not valid.
  *
  * @param credentials object to retrieve apiKey from
  *
  * @returns Promise sending HTTP request and resolving its response
  */
-function verify(credentials) {
+async function verify(credentials) {
 
-    // access the value of the apiKey field defined in credentials section of component.json
-    const apiKey = credentials.apiKey;
+  const usernameOih = credentials.username;
+  const passwordOih = credentials.password;
 
-    if (!apiKey) {
-        throw new Error('API key is missing');
-    }
+  if (!usernameOih) {
+    throw new Error('Username is missing');
+  } else {
+    console.log(`Username: ${usernameOih} is ok.`);
+  }
+  if (!passwordOih) {
+    throw new Error('Password: is missing');
+  } else {
+    console.log(`Password **** is ok.`);
+  }
 
-    // sending a request to the most simple endpoint of the target API
-    const requestOptions = {
-        uri: 'https://petstore.elastic.io/v2/user/me',
-        headers: {
-            'api-key': apiKey
-        },
-        json: true
-    };
+  const requestOptions = {
+    uri: 'http://iam.openintegrationhub.com/login',
+    json: true,
+    body: {
+      username: usernameOih,
+      password: passwordOih,
+    },
+  };
 
-    // if the request succeeds, we can assume the api key is valid
-    return request.get(requestOptions);
+  const response = await request.post(requestOptions);
+
+  if (response) {
+    process.env.token = response.token;
+    calculateExpiration();
+    
+    return true;
+  }
+  return false;
+
 }
