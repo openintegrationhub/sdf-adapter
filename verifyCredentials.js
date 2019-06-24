@@ -1,6 +1,5 @@
 const request = require('request-promise');
-const {calculateExpiration} = require('./lib/helper/refreshToken.js');
-module.exports = verify;
+const { calculateExpiration } = require('./lib/helper/refreshToken.js');
 
 /**
  *
@@ -9,19 +8,20 @@ module.exports = verify;
  * @returns Promise sending HTTP request and resolving its response
  */
 async function verify(credentials) {
-
   const usernameOih = credentials.username;
   const passwordOih = credentials.password;
 
   if (!usernameOih) {
     throw new Error('Username is missing');
   } else {
+    // eslint-disable-next-line no-console
     console.log(`Username: ${usernameOih} is ok.`);
   }
   if (!passwordOih) {
     throw new Error('Password: is missing');
   } else {
-    console.log(`Password **** is ok.`);
+    // eslint-disable-next-line no-console
+    console.log('Password **** is ok.');
   }
 
   const requestOptions = {
@@ -38,9 +38,9 @@ async function verify(credentials) {
   if (response) {
     process.env.token = response.token;
     calculateExpiration();
-    
     return true;
   }
   return false;
-
 }
+
+module.exports = verify;
