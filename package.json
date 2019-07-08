@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "description": "adapter component for the sdf framework",
     "scripts": {
-        "test": "SET NODE_ENV=test & mocha test/* --timeout 10000"
+        "test": "SET NODE_ENV=test & mocha test/* --timeout 10000",
+        "start": "node ./node_modules/elasticio-sailor-nodejs/run.js"
     },
     "repository": {
         "type": "git",
