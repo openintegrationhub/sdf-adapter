@@ -5,9 +5,9 @@ describe('Models', () => {
   // eslint-disable-next-line no-undef
   test('should list all model', async (done) => {
     const config = {
-      username: 'philipp.hoegner@cloudecosystem.org',
-      password: '_uRFRDTxZf4BB',
-      domain: '5cf51a1629bb9e00108f092c-Addresses',
+      username: 'xxx',
+      password: 'xxx',
+      domain: 'xxx-Addresses',
     };
     const response = await getAllModels(config);
 
