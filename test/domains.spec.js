@@ -1,4 +1,4 @@
-/* global describe */
+/* global describe it */
 const { getAllDomains } = require('../lib/usecases/domains/getAllDomains');
 
 describe('Domains', () => {
