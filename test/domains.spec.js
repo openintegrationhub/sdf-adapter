@@ -5,8 +5,8 @@ describe('Domains', () => {
   // eslint-disable-next-line no-undef
   test('should list all domain names', async (done) => {
     const config = {
-      username: 'philipp.hoegner@cloudecosystem.org',
-      password: '_uRFRDTxZf4BB',
+      username: 'xxx',
+      password: 'xxx',
     };
     const response = await getAllDomains(config);
 
