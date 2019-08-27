@@ -1,0 +1,59 @@
+{
+   "title":"SDF Adapter",
+   "description":"SDF Adapter component for the Open Integration Hub",
+   "docsUrl":"https://github.com/openintegrationhub/sdf-adapter",
+   "credentials": {
+    "fields": {
+      "username": {
+        "label": "Username",
+        "required": true,
+        "viewClass": "TextFieldView"
+      },
+      "password": {
+       "label": "Password",
+       "required": true,
+       "viewClass": "TextFieldWithNoteView",
+       "note": "Please use your OIH password"
+     }
+    }
+  },
+   "actions":{
+      "sendMessageToOih":{
+         "main":"./lib/actions/sendMessageToOih.js",
+         "description": "Sends a message to Open Integration Hub",
+         "title":"Send message to OIH",
+         "fields":{
+            "operation":{
+               "label":"Operation",
+               "required":true,
+               "viewClass":"SelectView",
+               "model":{
+                  "Create":"Create",
+                  "Update":"Update",
+                  "Delete":"Delete"
+               },
+               "prompt":"Select Operation"
+            },
+            "domain":{
+               "label":"Domain",
+               "required":true,
+               "viewClass":"SelectView",
+               "model":"domains",
+               "prompt":"Select Domain"
+            },
+            "model":{
+               "label":"Model",
+               "required":true,
+               "viewClass":"SelectView",
+               "model":"models",
+               "prompt":"Select Model"
+            }
+         }
+      },
+      "processRecordUid":{
+         "main":"/lib/actions/processRecordId.js",
+         "title":"Send recordUid to OIH",
+         "description": "Sends a application recordUid to Open Integration Hub"
+      }
+   }
+}
