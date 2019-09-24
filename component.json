@@ -17,6 +17,13 @@
      }
     }
   },
+  "triggers":{
+   "receiveEvents":{
+      "main":"/lib/triggers/receiveEvents.js",
+      "title":"Receives an event from OIH",
+      "description": "Receives an event from the dispatcher service of the Open Integration Hub"
+   }
+  },
    "actions":{
       "sendMessageToOih":{
          "main":"./lib/actions/sendMessageToOih.js",
