@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="https://github.com/openintegrationhub/openintegrationhub/blob/master/Assets/medium-oih-einzeilig-zentriert.jpg" alt="Sublime's custom image" width="400"/>
+</p>
+
+# <img src="logo.png" alt="Sublime's custom image" width="40"/> Smart Data Framework Adapter  
+
 The Smart Data Framework Adapter (SDF-Adapter) allows flows to communicate with the smart data framework. It is responsible for forwarding the incoming events to the smart data framework. Furthermore, it is responsbile for increasing the ease of use for connector developers as it masks service endpoints.
 
 ## Entrypoint
@@ -8,11 +14,9 @@ The SDF-Adpater is triggered by incoming events received from either the precedi
 
 ### Send Message to Open Integration Hub
 
-If a message arrives from the preceding component it is forwared to the correct service(s)/queue(s). One possible recipient of the forwarded message is the [dispatcher component](component-dispatcher.md).
+If a message arrives from the preceding component it is forwared to the correct service(s)/queue(s). The message is then consumed by the data hub for further processing.
 
 ![sdfAdapter](assets/sdfAdapter.png)
-
-If scenario 1 is realized it is necessary that the sdf adapter provides meta information in order to clearly identify the data set after it has been pushed onto the queue.
 
 The following snippet shows an example of a dataset that has been processed by the sdf adapter:
 
@@ -26,49 +30,93 @@ The following snippet shows an example of a dataset that has been processed by t
         "iamToken":"ddfdsfsdf5-sdfsdfsdfsdf6",
     },
     "data":{
-        "oihUid": "567",
-        "oihApplicationRecords": [
+        "title": "Prof.",
+        "salutation": "Mr.",
+        "firstName": "John",
+        "middleName": "Anthony",
+        "lastName": "Doe",
+        "gender": "male",
+        "birthday": "Wed, 14 Jun 1999 07:00:00 GMT",
+        "notes": "Private notes",
+        "displayName": "johndoe",
+        "language": "english",
+        "nickname": "johny",
+        "jobTitle": "Sales manager",
+        "photo": "http://example.org/photo.jpg",
+        "anniversary": "14 Jun",
+        "addresses": [
         {
-          "applicationUid": "123",
-          "recordUid": "201306",
+            "street": "Hohestr",
+            "streetNumber": "3",
+            "unit": "a",
+            "zipCode": "50667",
+            "city": "Cologne",
+            "district": "Alstadt-Sued",
+            "region": "NRW",
+            "country": "Germany",
+            "primaryContact": "Hermann Schmitz",
+            "description": "primary"
         },
+        {
+            "street": "Rudolfplatz",
+            "streetNumber": "3",
+            "unit": "a",
+            "zipCode": "50667",
+            "city": "Cologne",
+            "district": "Alstadt-Sued",
+            "region": "NRW",
+            "country": "Germany",
+            "primaryContact": "Hermann Schmitz",
+            "description": "mailing"
+        }
         ],
-        "substasks": [
+        "contactData": [
         {
-            "task": "Analyze system 1",
-            "details": {
-                "subject": "analysis",
-                "startdate": "2018-01-01T10:10:10Z",
-                "enddate": "2018-03-01T10:10:10Z",
-                "reminderdate": "2018-02-01T10:10:10Z",
-                "content": "To create a datamodel we have to analyze system 1...",
-                "status": "in progress",
-            },
+            "value": "123456789",
+            "type": "phone",
+            "description": "primary"
         },
         {
-            "task": "Analyze system 2",
-            "details": {
-                "subject": "analysis",
-                "startdate": "2018-01-01T10:10:10Z",
-                "enddate": "2018-03-01T10:10:10Z",
-                "reminderdate": "2018-02-01T10:10:10Z",
-                "content": "To create a datamodel we have to analyze system 2...",
-                "status": "in progress",
-            },
+            "value": "00224477",
+            "type": "phone",
+            "description": "private"
         },
-      ],
-        "details": {
-            "task": "Analyze systems",
-            "details": {
-                "subject": "analysis",
-                "startdate": "2018-01-01T10:10:10Z",
-                "enddate": "2018-03-01T10:10:10Z",
-                "reminderdate": "2018-02-01T10:10:10Z",
-                "content": "To create a datamodel we have to analyze system 1...",
-                "status": "in progress",
-            },
+        {
+            "value": "95248793",
+            "type": "phone",
+            "description": "mobile"
         },
-    },
+        {
+            "value": "jon@doe.com",
+            "type": "email",
+            "description": "private"
+        },
+        {
+            "value": "xing.de/yourUsername",
+            "type": "xing",
+            "description": "xing"
+        },
+        {
+            "value": "98326307",
+            "type": "phone",
+            "description": "secondary"
+        }
+        ],
+        "calendar": [
+        {
+            "calendar": "http://example.org/kalender/emuster",
+            "busyCalendar": "http://example.org/kalender/emuster/busy",
+            "requestCalendar": "http://example.org/kalender/emuster/appointment",
+            "description": "private"
+        }
+        ],
+        "category": [
+        {
+            "name": "private",
+            "description": "private address data of the person"
+        }
+        ]
+    }
 }
 ```
 
