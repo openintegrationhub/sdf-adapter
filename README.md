@@ -2,9 +2,21 @@
   <img src="https://github.com/openintegrationhub/openintegrationhub/blob/master/Assets/medium-oih-einzeilig-zentriert.jpg" alt="Sublime's custom image" width="400"/>
 </p>
 
-# <img src="logo.png" alt="Sublime's custom image" width="40"/> Smart Data Framework Adapter  
+# Smart Data Framework Adapter  
+
+<img src="logo.png" alt="Sublime's custom image" width="40"/>
 
 The Smart Data Framework Adapter (SDF-Adapter) allows flows to communicate with the smart data framework. It is responsible for forwarding the incoming events to the smart data framework. Furthermore, it is responsbile for increasing the ease of use for connector developers as it masks service endpoints.
+
+- [Smart Data Framework Adapter](#smart-data-framework-adapter)
+- [Trigger](#trigger)
+  - [Entrypoint Trigger](#entrypoint-trigger)
+  - [Receive Events](#receive-events)
+- [Actions](#actions)
+  - [Entrypoint Action](#entrypoint-action)
+  - [Message Processing](#message-processing)
+    - [Send Message to Open Integration Hub](#send-message-to-open-integration-hub)
+    - [Send recordUid to Open Integration Hub](#send-recorduid-to-open-integration-hub)
 
 # Trigger
 
