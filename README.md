@@ -6,7 +6,23 @@
 
 The Smart Data Framework Adapter (SDF-Adapter) allows flows to communicate with the smart data framework. It is responsible for forwarding the incoming events to the smart data framework. Furthermore, it is responsbile for increasing the ease of use for connector developers as it masks service endpoints.
 
-## Entrypoint
+# Trigger
+
+## Entrypoint Trigger
+
+The SDF-Adpater is triggered by incoming events received from either the Open Integration Hub i.e. Smart Data Framework.
+
+## Receive Events
+
+If the Smart Data Frameworks starts a flow with the SDF Adapter as the first component, the trigger receiveEvents should be configured as `function`.
+The SDF Adapter subscribes to events having `dispatch.FLOWID` as their topic, where FLOWID is the id of the current flow.
+Once the SDF Adapter receives a message it passes it onto the queue for further processing by the subsequent component. In this case the application (and master data model) specific transformer.
+
+![receiveEvents](assets/sdfAdapterReceiveEvents.png)
+
+# Actions
+
+## Entrypoint Action
 
 The SDF-Adpater is triggered by incoming events received from either the preceding adapter or the transformer (depending on oih operator configuration).
 
