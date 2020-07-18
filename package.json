@@ -22,7 +22,7 @@
     "co": "4.6.0",
     "elasticio-node": "0.0.9",
     "elasticio-sailor-nodejs": "2.2.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "request": "^2.88.0",
     "request-promise": "4.1.1"
   },
