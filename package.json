@@ -4,7 +4,7 @@
   "description": "adapter component for the sdf framework",
   "scripts": {
     "test": "jest",
-    "start": "node ./node_modules/ferryman/runGlobal.js"
+    "start": "node ./node_modules/@openintegrationhub/ferryman/runGlobal.js"
   },
   "repository": {
     "type": "git",
