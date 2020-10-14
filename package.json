@@ -1,6 +1,6 @@
 {
   "name": "@openintegrationhub/sdf-adapter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "adapter component for the sdf framework",
   "scripts": {
     "test": "jest",
